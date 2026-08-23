@@ -262,7 +262,7 @@ svg { display: block; }
 }
 
 .hero-desc {
-  color: var(--text-muted);
+  color: var(--text);
   font-size: 1.05rem;
   max-width: 560px;
   margin-bottom: 36px;
@@ -501,7 +501,7 @@ button.circuit-node:focus-visible {
 
 .flashcard-teaser {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.65;
   margin-bottom: 20px;
 }
@@ -587,7 +587,7 @@ button.circuit-node:focus-visible {
 }
 .card-bullets li {
   font-size: 0.9rem;
-  color: var(--text-muted);
+  color: var(--text);
   padding-left: 16px;
   position: relative;
   line-height: 1.65;
@@ -660,7 +660,7 @@ button.circuit-node:focus-visible {
 
 .project-desc {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.6;
   margin-bottom: 16px;
 }
@@ -693,7 +693,7 @@ button.circuit-node:focus-visible {
 }
 .circuit-content p.circuit-meta {
   font-size: 0.82rem;
-  color: var(--text-muted);
+  color: var(--text);
   line-height: 1.5;
 }
 
@@ -743,7 +743,7 @@ button.circuit-node:focus-visible {
 
 .cert-info { flex: 1; }
 .cert-info h4 { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
-.cert-info p  { font-size: 0.82rem; color: var(--text-muted); }
+.cert-info p  { font-size: 0.82rem; color: var(--text); }
 
 .cert-progress {
   display: flex;
@@ -858,33 +858,55 @@ button.circuit-node:focus-visible {
 .contact-container { text-align: center; max-width: 580px; }
 
 .contact-desc {
-  color: var(--text-muted);
+  color: var(--text);
   font-size: 1rem;
   margin-bottom: 36px;
   line-height: 1.8;
 }
 
-.contact-links {
+/* ── Social Rail ──────────────────────────────────────────── */
+.social-rail {
+  position: fixed;
+  left: 32px;
+  bottom: 0;
+  z-index: 40;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 24px;
+}
+.social-rail::after {
+  content: '';
+  width: 1px;
+  height: 90px;
+  margin-top: 4px;
+  background: linear-gradient(to bottom, var(--border), transparent);
 }
 
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 12px 24px;
-  border-radius: var(--radius);
-  font-size: 0.9rem;
+.social-icon {
   color: var(--text-muted);
-  transition: border-color var(--transition), color var(--transition), transform var(--transition);
+  transition: color var(--transition), transform var(--transition);
 }
-.contact-link svg { width: 18px; height: 18px; }
-.contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.social-icon svg { width: 20px; height: 20px; display: block; }
+.social-icon:hover { color: var(--accent); transform: translateY(-3px); }
+
+@media (max-width: 640px) {
+  .social-rail {
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 22px;
+    padding: 10px 20px;
+    background: rgba(8, 11, 18, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+  }
+  .social-rail::after { display: none; }
+}
 
 /* ── Footer ───────────────────────────────────────────────── */
 footer {
